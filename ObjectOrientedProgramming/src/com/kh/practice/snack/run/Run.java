@@ -7,5 +7,6 @@ public class Run {
 		public static void-main(String[] args) {
 			SnackMenu sm = new SnackMenu();
 			sm.menu();
+			System.out.println("임시 수정");
 		}
 }
