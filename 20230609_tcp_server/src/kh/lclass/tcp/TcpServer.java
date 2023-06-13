@@ -43,7 +43,7 @@ public class TcpServer {
 				// 6. 보조 스트림을 통해 성능 개선
 				br = new BufferedReader(new InputStreamReader(in));
 				wr = new BufferedWriter(new OutputStreamWriter(out));
-
+				
 				String receivedMsg;
 				while ((receivedMsg = br.readLine()) != null) {
 					System.out.println("받은메시지: " + receivedMsg);

@@ -3,11 +3,11 @@ package com.kh.practice.list.music_vo;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class Music implements Comparable<Object>, Serializable >{
+public class Music implements Comparable<Object>, Serializable {
 	private String title;
 	private String singer;
 	
-}
+
 	public Music() {}
 	
 	public Music(String title, String singer) {
@@ -55,7 +55,6 @@ public class Music implements Comparable<Object>, Serializable >{
 		return Objects.equals(singer, other.singer) && Objects.equals(title, other.title);
 	}
 
-	@Override
 	public int compareTo(Music o) {
 		int result = this.singer.compareTo(((Music)o).getSinger());
 		// 양수, 음수
