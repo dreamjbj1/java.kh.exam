@@ -8,6 +8,8 @@ import java.io.OutputStreamWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -33,6 +35,9 @@ public class ServerBackground {
 
 	// 서버 생성 및 설정
 	public void setting() {
+		//참고: 동시접속자로 map에 정보가 동기화되어 들어가도록 설정함.
+		Collections.synchronizedMap(mapClients);
+		
 		try {
 			serverSocket = new ServerSocket(7777);
 			// 방문자 접속을 계속 받아드림. 무한반복함. GUI 프로그램경우 창 닫힐때까지 계속 반복됨. break 없음
@@ -69,7 +74,7 @@ public class ServerBackground {
 		for(String key : keys) {
 			BufferedWriter wr = mapClients.get(key);
 			try {
-				wr.write(msg+"\n");
+				wr.write(key+":"+msg+"\n");
 				wr.flush();
 			} catch (IOException e) {
 				e.printStackTrace();

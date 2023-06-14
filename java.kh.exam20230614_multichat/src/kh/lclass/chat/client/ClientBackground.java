@@ -46,8 +46,9 @@ public class ClientBackground {
 	public void sendMessage(String msg) {
 		// server에 msg 전달
 		try {
-			bw.write(msg + "\n");
+			bw.write(nickname+" : " +msg+"\n");
 			bw.flush();
+			gui.appendMsg(msg);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
