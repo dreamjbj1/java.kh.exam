@@ -103,11 +103,12 @@ public class ServerBackground {
 							bw = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
 							// 클라이언트 nickname이 바로 이어서 들어옴.
 							// 접속되면 바로 nickname이 전달될 것으로 읽음
-							String nickname = br.readLine();
+							nickname = br.readLine();
 							// server 화면에 표현
 							addClient(nickname);
 							// client outputStream 모두에게 접속 정보 전달
 							mapClients.put(nickname, bw);
+							// client map 모두에게 접속 정보 전달 
 							sendMessage(nickname+"님 접속했습니다.");
 						} catch (IOException e) {
 							e.printStackTrace();
